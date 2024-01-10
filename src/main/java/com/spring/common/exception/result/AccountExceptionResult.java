@@ -13,6 +13,9 @@ public enum AccountExceptionResult {
     ACCOUNT_WRONG_VALUE(HttpStatus.BAD_REQUEST, "잘못된 입력입니다."),
     ACCOUNT_UPDATE_NOT_AUTHORIZATION(HttpStatus.BAD_REQUEST, "수정 권한이 없습니다."),
     ACCOUNT_DELETE_NOT_AUTHORIZATION(HttpStatus.BAD_REQUEST, "삭제 권한이 없습니다."),
+    ACCOUNT_DUPLICATION_NICKNAME(HttpStatus.BAD_REQUEST, "중복된 닉네임입니다."),
+    ACCOUNT_DUPLICATION_EMAIL(HttpStatus.BAD_REQUEST, "중복된 이메일입니다."),
+    ACCOUNT_DUPLICATION_USERNAME(HttpStatus.BAD_REQUEST, "중복된 유저이름입니다."),
     ;
 
     private final HttpStatus status;

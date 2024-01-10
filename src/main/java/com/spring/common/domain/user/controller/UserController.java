@@ -20,6 +20,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @PostMapping("/index")
+    public String index() {
+        return "index";
+    }
+
     @PostMapping("reissue")
     public ResponseEntity<StatusResponse> reissue(HttpServletRequest request,
                                                   HttpServletResponse response) {
@@ -31,7 +36,7 @@ public class UserController {
     public ResponseEntity<StatusResponse> signup(
             @Validated @RequestBody SignupRequsetDto request) {
         userService.signup(request);
-        return HttpResponseEntity.RESPONSE_OK;
+        return HttpResponseEntity.CREATED_OK;
     }
 
     @PostMapping("/login")

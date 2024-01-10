@@ -3,7 +3,6 @@ package com.spring.common.security.jwtUtil;
 import com.spring.common.config.RoleEnum;
 import com.spring.common.exception.SecurityException;
 import com.spring.common.exception.result.SecurityExceptionResult;
-import com.spring.common.security.SecurityExceptionDto;
 import com.spring.common.security.redis.RedisDao;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;

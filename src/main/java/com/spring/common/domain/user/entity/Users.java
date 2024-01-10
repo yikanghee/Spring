@@ -20,13 +20,13 @@ public class Users {
     @Column(name = "user_id", nullable = false)
     private Long id;
 
-    @Column(length = 25, nullable = false, unique = true)
+    @Column(length = 25, nullable = false)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String email;
 
     @Column

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class Profile {
 
-    @Column(unique = true)
+    @Column
     private String nickName;
 
     @Column

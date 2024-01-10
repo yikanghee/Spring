@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService {
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
 
-
     @Override
     public void reissue(HttpServletRequest request, HttpServletResponse response) {
         String token = jwtUtil.resolveRefreshToken(request);
@@ -41,6 +40,8 @@ public class UserServiceImpl implements UserService {
         String username = request.getUsername();
         String email = request.getEmail();
         String password = passwordEncoder.encode(request.getPassword());
+
+        userRepository.existsByUserInfo(username, email, request.getNickname());
 
         if (request.getImg_url() != null) {
             Profile profile = Profile.builder().nickName(request.getNickname()).img_url(
@@ -112,8 +113,10 @@ public class UserServiceImpl implements UserService {
         if (!users.checkAuthorization(users)) {
             throw new AccountException(AccountExceptionResult.ACCOUNT_UPDATE_NOT_AUTHORIZATION);
         }
+
         String password = passwordEncoder.encode(request.getPassword());
         users.updatePassword(password);
+
         this.userRepository.save(users);
     }
 
